@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	  initAutoplayVideos();
 	  initAutoplayIframes();
+	  initDisableVideoContextMenu();
 	});
 
 	function initAutoplayVideos() {
@@ -166,6 +167,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	  );
 
 	  iframes.forEach((iframe) => observer.observe(iframe));
+	}
+
+	function initDisableVideoContextMenu() {
+	  const embeds = Array.from(document.querySelectorAll('.video-embed'));
+	  if (!embeds.length) return;
+
+	  embeds.forEach((embed) => {
+	    embed.addEventListener('contextmenu', (event) => event.preventDefault());
+	  });
 	}
 
 	function initLeadForm({ leadForm, formStatus, submitBtn }) {
@@ -546,4 +556,3 @@ function initDemoChat({ chatBox, typing }) {
 
   observer.observe(chatBox);
 }
-

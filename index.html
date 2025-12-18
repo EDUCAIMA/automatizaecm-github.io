@@ -86,6 +86,18 @@
             <strong>Demo (simulación)</strong>
           </div>
 
+          <div class="chat chat--demo" aria-label="Chat demo">
+            <div id="chatBox" class="chat__box" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+            <div id="typing" class="chat__typing is-hidden" aria-hidden="true">
+              <div class="typing" aria-hidden="true">
+                <span class="typing__dot"></span>
+                <span class="typing__dot"></span>
+                <span class="typing__dot"></span>
+              </div>
+              <span class="sr-only">Escribiendo…</span>
+            </div>
+          </div>
 
           <div class="card__footer">
             <span style="color: rgb(40, 240, 180);">Conectado a agenda y CRM</span>
@@ -427,7 +439,14 @@
     </div>
   </footer>
 
+  <a id="floatingChat" class="floating-chat" href="#demo" aria-label="Abrir chat">
+    <svg class="floating-chat__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20 3H4a2 2 0 0 0-2 2v15l4-3h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 12H5.3L4 16V5h16v10z" />
+    </svg>
+    <span class="floating-chat__label">Chat</span>
+  </a>
   
+
   <script src="app.js" defer></script>
 </body>
 </html>

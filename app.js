@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	  }
 
 	  initAutoplayVideos();
+	  initAutoplayIframes();
 	});
 
 	function initAutoplayVideos() {
@@ -129,6 +130,42 @@ document.addEventListener('DOMContentLoaded', () => {
 	  );
 
 	  videos.forEach((video) => observer.observe(video));
+	}
+
+	function initAutoplayIframes() {
+	  const iframes = Array.from(document.querySelectorAll('iframe[data-autoplay-src]'));
+	  if (!iframes.length) return;
+
+	  const reducedMotionQuery =
+	    typeof window !== 'undefined' && 'matchMedia' in window
+	      ? window.matchMedia('(prefers-reduced-motion: reduce)')
+	      : { matches: false };
+
+	  const canObserve = typeof IntersectionObserver !== 'undefined';
+	  if (!canObserve || reducedMotionQuery.matches) return;
+
+	  const observer = new IntersectionObserver(
+	    (entries) => {
+	      entries.forEach((entry) => {
+	        const iframe = entry.target;
+	        if (!(iframe instanceof HTMLIFrameElement)) return;
+
+	        if (!entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+
+	        const autoplaySrc = iframe.getAttribute('data-autoplay-src');
+	        if (!autoplaySrc) return;
+
+	        if (iframe.src !== autoplaySrc) {
+	          iframe.src = autoplaySrc;
+	        }
+
+	        observer.unobserve(iframe);
+	      });
+	    },
+	    { threshold: [0, 0.35, 1] }
+	  );
+
+	  iframes.forEach((iframe) => observer.observe(iframe));
 	}
 
 	function initLeadForm({ leadForm, formStatus, submitBtn }) {
@@ -509,3 +546,4 @@ function initDemoChat({ chatBox, typing }) {
 
   observer.observe(chatBox);
 }
+

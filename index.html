@@ -445,7 +445,28 @@
     </svg>
     <span class="floating-chat__label">Chat</span>
   </a>
-  
+  <div id="chatNudge" class="chat-nudge" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div id="chatWidget" class="chat-widget" role="dialog" aria-label="Chat" aria-modal="false" hidden>
+    <div class="chat-widget__header">
+      <div class="chat-widget__title">
+        <strong>Automatiza</strong>
+        <span class="chat-widget__subtitle">Asistente</span>
+      </div>
+      <button id="chatWidgetClose" class="chat-widget__close" type="button" aria-label="Cerrar chat">×</button>
+    </div>
+    <div id="chatWidgetLog" class="chat-widget__log" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <form id="chatWidgetForm" class="chat-widget__form" autocomplete="off">
+      <input
+        id="chatWidgetInput"
+        class="chat-widget__input"
+        type="text"
+        inputmode="text"
+        placeholder="Escribe tu mensaje…"
+        aria-label="Escribe tu mensaje"
+      />
+      <button class="chat-widget__send" type="submit">Enviar</button>
+    </form>
+  </div>
 
   <script src="app.js" defer></script>
 </body>

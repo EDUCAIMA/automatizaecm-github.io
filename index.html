@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asistente WhatsApp para Clínicas | Agenda + Confirmación + Seguimiento</title>
+  <meta name="description" content="Automatiza WhatsApp para agendar, confirmar y hacer seguimiento. Reduce ausencias y libera recepción en 7 días." />
+  <meta name="theme-color" content="#0b1020" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Puedes cambiar la fuente si quieres -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <nav class="nav">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--ghost" href="#demo">Pedir demo</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="container mobile-menu__inner">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--primary" href="#demo">Pedir demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <img class="hero__logo" src="logo-automatiza.png" alt="Automatiza — Automatización e Inteligencia Artificial" />
+        <h1>Asistente por para clínicas: agenda, confirma y hace seguimiento automático</h1>
+        <p class="lead">
+          Reduce ausencias, aumenta citas confirmadas y libera a recepción.
+          Ideal para odontología, estética y medicina particular.
+        </p>
+        <br>
+        <div class="hero__cta">
+          <a class="btn btn--whatsapp" id="btnWhatsHero" href="#" target="_blank" rel="noopener">
+            <img class="whats-btn__img" src="boton-whatsapp.png" alt="Hablar por WhatsApp" />
+          </a>
+          <a class="btn btn--ghost" href="#demo">Quiero una demo</a>
+        </div>
+        <br>
+        <div class="metrics">
+          <div class="metric">
+            <strong>24/7</strong>
+            <span>Atención inicial</span>
+          </div>
+          <div class="metric">
+            <strong>+Seguimiento</strong>
+            <span>24h / 48h / 7 días</span>
+          </div>
+          <div class="metric">
+            <strong>Agenda</strong>
+            <span>Calendar / CRM</span>
+          </div>
+        </div>
+
+        <p class="note", style="color: rgb(40, 240, 180);">
+          No es un “bot genérico”: se configura para tus servicios, horarios, políticas y procesos.
+        </p>
+      </div>
+
+      <div class="hero__card">
+        <div class="card card--glass">
+          <div class="card__title">
+            <span class="dot"></span>
+            <strong>Demo (simulación)</strong>
+          </div>
+
+          <div class="chat chat--demo" aria-label="Chat demo">
+            <div id="chatBox" class="chat__box" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+            <div id="typing" class="chat__typing is-hidden" aria-hidden="true">
+              <div class="typing" aria-hidden="true">
+                <span class="typing__dot"></span>
+                <span class="typing__dot"></span>
+                <span class="typing__dot"></span>
+              </div>
+              <span class="sr-only">Escribiendo…</span>
+            </div>
+          </div>
+
+          <div class="card__footer">
+            <span style="color: rgb(40, 240, 180);">Conectado a agenda y CRM</span>
+            <span class="badge">Automático</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problemas / Beneficios -->
+  <section class="section section--tight-top">
+    <div class="container">
+      <h2>Lo que resolvemos en clínicas y Consultorios </h2>
+      <h3><p class="sublead">Automatización enfocada en resultados operativos y comerciales.</p></h3>
+      <h3><p class="sublead sublead--tight">
+        En la práctica, los cuellos de botella suelen ser los mismos: mensajes sin respuesta, agendas con huecos, pacientes
+        que olvidan la cita y seguimiento que se hace “cuando hay tiempo”. Esto lo resolvemos con flujos claros, plantillas
+        aprobadas y métricas.
+      </p></h3>
+
+      <div class="grid-3">
+        <article class="feature">
+          <h3 style="text-align: center;">Menos ausencias (Inasistencia)</h3>
+          <h4><p>Confirmación y recordatorios automáticos. Reprogramación simple sin saturar recepción.</p>
+          <ul></h4>
+            <li>Recordatorio 24h/48h y día de la cita</li>
+            <li>Confirmar / cancelar en 1 toque</li>
+            <li>Reagendar sin perder el control</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3 style="text-align: center;">Respuesta inmediata 24/7</h3>
+          <h4><p>Atención inicial y captura de lead sin depender del horario de recepción.</p>
+          <ul></h4>
+            <li>Preguntas frecuentes, sedes y horarios</li>
+            <li>Filtros por servicio y motivo</li>
+            <li>Derivación a humano cuando aplica</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3 style="text-align: center;">Seguimiento que cierra</h3>
+          <h4><p>Si el prospecto no decide, recibe seguimiento con control de estado y derivación a humano.</p>
+          <ul></h4>
+            <li>Secuencias 24h / 48h / 7 días</li>
+            <li>Manejo de objeciones frecuentes</li>
+            <li>Rescatar conversaciones “frías”</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3 style="text-align: center;">Agenda ordenada</h3>
+          <h4><p>Menos errores, menos dobles reservas y más claridad para el equipo.</p>
+          <ul></h4>
+            <li>Recoge datos completos (nombre, motivo, sede)</li>
+            <li>Valida disponibilidad e indica alternativas</li>
+            <li>Confirma por WhatsApp con resumen</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3 style="text-align: center;">Mejor experiencia del paciente</h3>
+          <h4><p>Comunicación clara antes y después de la cita para reducir dudas y fricción.</p>
+          <ul></h4>
+            <li>Indicaciones previas (ayuno, documentos, ubicación)</li>
+            <li>Instrucciones post-tratamiento o control</li>
+            <li>Encuesta rápida de satisfacción</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3 style="text-align: center;">Métricas y control</h3>
+          <h4><p>Visibilidad real de lo que pasa en WhatsApp para mejorar decisiones.</p>
+          <ul></h4>
+            <li>Tasa de confirmación y motivos de cancelación</li>
+            <li>Leads atendidos vs. derivados</li>
+            <li>Horas pico y carga operativa</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+	  </section>
+
+	  <!-- Video -->
+	  <section class="section" id="video">
+	    <div class="container">
+	      <h2>Mira el flujo en acción</h2>
+	      <p class="sublead">Un flujo claro, medible y con control.</p>
+
+		      <div class="card card--glass video-card">
+		        <div class="video-embed">
+		          <video class="autoplay-video" autoplay muted playsinline controls preload="metadata">
+		            <source src="VIDEO1.mp4" type="video/mp4" />
+		            Tu navegador no soporta video HTML5.
+		          </video>
+		        </div>
+		      </div>
+	    </div>
+	  </section>
+
+	  <!-- Cómo funciona -->
+	  <section class="section section--alt" id="como-funciona">
+	    <div class="container">
+	      <h2>Cómo funciona</h2>
+	      <p class="sublead">Implementación en 30 días, de diagnóstico a optimización.</p>
+
+	      <ol class="steps">
+        <li>
+          <strong>Día 1 - 3: Diagnóstico rápido</strong>
+          <span>Servicios, horarios, políticas, mensajes, preguntas frecuentes y reglas de atención.</span>
+        </li>
+        <li>
+          <strong>Día 4 - 7: Configuración del asistente</strong>
+          <span>Intenciones: agenda, dudas, precios orientativos, sedes, medios de pago, soporte.</span>
+        </li>
+        <li>
+          <strong> Día 8 - 12: Integraciones</strong>
+          <span>Agenda (Google Calendar) + CRM/Sheets + notificaciones + handoff a recepción.</span>
+        </li>
+        <li>
+          <strong> Día 13 al 30: Optimización</strong>
+          <span>Seguimiento 24h/48h/7 días, métricas, mejoras del guion y reglas.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Paquetes -->
+  <section class="section" id="paquetes">
+    <div class="container">
+      <h2>Paquetes</h2>
+      <p class="sublead">Tres niveles según el volumen y la complejidad.</p>
+
+      <div class="pricing">
+        <article class="price-card">
+          <h3>Starter</h3>
+          <p class="price">Desde <strong>$ 350,000</strong></p>
+          <ul>
+            <li>FAQ + captura de lead</li>
+            <li>Registro en Sheets/CRM</li>
+            <li>Derivación a humano</li>
+          </ul>
+          <a class="btn btn--ghost" href="#demo">Pedir demo</a>
+        </article>
+
+        <article class="price-card price-card--featured">
+          <div class="ribbon">Recomendado</div>
+          <h3>Pro</h3>
+          <p class="price">Desde <strong>$ 700,000</strong></p>
+          <p><h3 style="color: rgb(40, 240, 180);">Todo lo del Plan Start +</h3></p>
+          <ul>
+            <li>Agenda + confirmación/cancelación</li>
+            <li>Recordatorios automáticos</li>
+            <li>Seguimiento 24h/48h/7 días</li>
+            <li>Métricas básicas</li>
+          </ul>
+          <a class="btn btn--ghost" href="#demo">Pedir demo</a>
+        </article>
+
+        <article class="price-card">
+          <h3>Premium</h3>
+          <p class="price">Desde <strong>$ 1,400,000</strong></p>
+          <p><h3 style="color: rgb(40, 240, 180);">Todo lo del Plan PRO +</h3></p><ul>
+            <li>Segmentación + reactivación</li>
+            <li>Reportes avanzados</li>
+            <li>Monitoreo y alertas</li>
+            <li>Base de conocimiento</li>
+          </ul>
+          <a class="btn btn--ghost" href="#demo">Pedir demo</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario / Demo -->
+  <section class="section section--alt" id="demo">
+    <div class="container demo">
+      <div class="demo__form">
+        <form id="leadForm" class="form" novalidate action="https://formsubmit.co/eduardo.caicedom@gmail.com" method="POST">
+          <h2 style="text-align: center;">Solicita una demo</h2>
+          <p class="sublead">
+          Déjame tus datos y te muestro el flujo funcionando. También puedes escribir directo por WhatsApp.
+          </p>
+
+          <!-- Config FormSubmit (fallback si JS no está disponible) -->
+          <input type="hidden" name="_subject" value="Nueva solicitud de demo (Landing)" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <div class="form__row">
+            <label for="name">Nombre *</label>
+            <input id="name" name="name" type="text" placeholder="Tu nombre" required minlength="2" />
+          </div>
+
+          <div class="form__row">
+            <label for="clinic">Clínica / Consultorio *</label>
+            <input id="clinic" name="clinic" type="text" placeholder="Nombre del negocio" required minlength="2" />
+          </div>
+
+          <div class="form__row">
+            <label for="whatsapp">WhatsApp *</label>
+            <input id="whatsapp" name="whatsapp" type="tel" placeholder="Ej: 573118886511" required />
+            <small>Incluye indicativo país (57) para Colombia.</small>
+          </div>
+
+          <div class="form__row">
+            <label for="service">Tipo *</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Selecciona…</option>
+              <option value="Odontología">Odontología</option>
+              <option value="Estética">Estética</option>
+              <option value="Medicina particular">Medicina particular</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="form__row">
+            <label for="city">Ciudad</label>
+            <input id="city" name="city" type="text" placeholder="Ej: Pitalito" />
+          </div>
+
+          <div class="form__row">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="¿Qué te gustaría automatizar primero?"></textarea>
+          </div>
+
+          <!-- Honeypot anti-spam (debe quedar oculto) -->
+          <div class="hp" aria-hidden="true">
+            <label for="_honey">Company</label>
+            <input id="_honey" name="_honey" type="text" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <button class="btn btn--primary btn--full" id="submitBtn" type="submit">
+            Enviar y pedir demo
+          </button>
+
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+
+          <p class="form__legal">
+            Al enviar aceptas ser contactado por WhatsApp con fines comerciales. Manejo de datos según política de privacidad.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 style="text-align: center;">Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Esto reemplaza a la recepcionista?</summary>
+          <p>No. Automatiza la atención repetitiva y deja los casos complejos para el equipo humano.</p>
+        </details>
+        <details>
+          <summary>¿Se puede integrar con Google Calendar?</summary>
+          <p>Sí. También se puede registrar en Sheets o CRM y luego crecer a integraciones adicionales.</p>
+        </details>
+        <details>
+          <summary>¿Qué necesito para arrancar?</summary>
+          <p>Servicios, horarios, políticas (cancelación), sedes, preguntas frecuentes y responsable de aprobación de mensajes.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tarda el MVP?</summary>
+          <p>El MVP se puede dejar operativo en 7 días, y luego optimizar en 30 días con métricas y ajustes.</p>
+        </details>
+      </div>
+
+      <div class="final-cta">
+        <h3>¿Listo para automatizar WhatsApp en tu clínica?</h3>
+        <p>Te muestro una demo funcional y te doy una propuesta por paquete.</p>
+        <a class="btn btn--whatsapp" id="btnWhatsFooter" href="#" target="_blank" rel="noopener">
+          <img class="whats-btn__img" src="boton-whatsapp.png" alt="Hablar por WhatsApp" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <img class="footer__logo-img" src="logo-automatiza.png" alt="Automatiza" />
+        <p class="muted">Automatización conversacional para clínicas.</p>
+      </div>
+      <div class="footer__social" aria-label="Redes sociales">
+        <a class="social-link" href="www.cerrana.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.7-1.6h1.4V4.8c-.7-.1-1.6-.2-2.7-.2-2.7 0-4.6 1.7-4.6 4.8V11H7v3h2.3v8h4.2z" />
+          </svg>
+        </a>
+        <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm9 2h-9A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4z" />
+            <path d="M12 7.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z" />
+            <path d="M17.6 6.4a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
+          </svg>
+        </a>
+        <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M14 3c.3 2.6 2.3 4.7 5 5v3.1c-1.9-.1-3.6-.8-5-2v6.6c0 3-2.5 5.3-5.5 5.3S3 18.6 3 15.7c0-3 2.5-5.4 5.5-5.4.5 0 .9.1 1.3.2v3.1c-.4-.2-.8-.3-1.3-.3-1.3 0-2.4 1.1-2.4 2.4 0 1.3 1.1 2.3 2.4 2.3 1.4 0 2.5-1 2.5-2.8V3h3.5z" />
+          </svg>
+        </a>
+        <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31.3 31.3 0 0 0 2 12a31.3 31.3 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 22 12a31.3 31.3 0 0 0-.4-4.8z" />
+            <path d="M10.2 15.3V8.7L15.8 12l-5.6 3.3z" />
+          </svg>
+        </a>
+        <a class="social-link" href="#" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18.9 2H22l-6.8 7.8L23 22h-6.8l-5.3-6.5L5.3 22H2l7.3-8.4L1 2h7l4.8 5.9L18.9 2zm-1.2 18h1.8L7 3.9H5.1L17.7 20z" />
+          </svg>
+        </a>
+      </div>
+      <div class="footer__contact" aria-label="Contacto">
+        <a class="footer__contact-item" href="tel:+573118886511" aria-label="Teléfono 3118886511">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6.6 10.8a15.4 15.4 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.36 2.3.55 3.6.55a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.1 21 3 13.9 3 5a1 1 0 0 1 1-1h3.3a1 1 0 0 1 1 1c0 1.3.19 2.5.55 3.6a1 1 0 0 1-.25 1l-2 2.2z" />
+          </svg>
+          <span>3118886511</span>
+        </a>
+        <a
+          class="footer__contact-item"
+          href="mailto:eduardo.caicedom@gmail.com"
+          aria-label="Correo eduardo.caicedom@gmail.com"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z" />
+          </svg>
+          <span>eduardo.caicedom@gmail.com</span>
+        </a>
+      </div>
+      <div class="footer__links">
+        <a href="#" id="privacyLink">Política de privacidad</a>
+        <a href="#demo">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <a id="floatingChat" class="floating-chat" href="#demo" aria-label="Abrir chat">
+    <svg class="floating-chat__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20 3H4a2 2 0 0 0-2 2v15l4-3h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 12H5.3L4 16V5h16v10z" />
+    </svg>
+    <span class="floating-chat__label">Chat</span>
+  </a>
+  <div id="chatNudge" class="chat-nudge" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div id="chatWidget" class="chat-widget" role="dialog" aria-label="Chat" aria-modal="false" hidden>
+    <div class="chat-widget__header">
+      <div class="chat-widget__title">
+        <strong>Automatiza</strong>
+        <span class="chat-widget__subtitle">Asistente</span>
+      </div>
+      <button id="chatWidgetClose" class="chat-widget__close" type="button" aria-label="Cerrar chat">×</button>
+    </div>
+    <div id="chatWidgetLog" class="chat-widget__log" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <form id="chatWidgetForm" class="chat-widget__form" autocomplete="off">
+      <input
+        id="chatWidgetInput"
+        class="chat-widget__input"
+        type="text"
+        inputmode="text"
+        placeholder="Escribe tu mensaje…"
+        aria-label="Escribe tu mensaje"
+      />
+      <button class="chat-widget__send" type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
